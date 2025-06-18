@@ -3,13 +3,18 @@ import Login from "./components/Auth/Login";
 import EmployeeDashboard from "./components/Dashboard/EmployeeDashboard";
 import AdminDashboard from "./components/Dashboard/AdminDashboard";
 import { setLocalStorage } from "./utils/LocalStorage";
+import { useContext } from "react";
+import { AuthContext } from "./context/AuthProvider";
 
 const App = () => {
     const [user , setUser] = useState(null)
+    const authData = useContext(AuthContext)
+
+
     const handleLogin = (email,password)=>{
         if(email == "admin@me.com"  && password == 123){
             setUser('admin')
-        }else if(email == 'user@me.com' && password ==123){
+        }else if(authData && authData.employee.find((e)=>{email == e.email && password == e.password})){
             setUser('employee')
         }
         else{
