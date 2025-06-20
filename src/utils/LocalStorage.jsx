@@ -50,7 +50,7 @@ const employee = [
     email: "employee2@example.com",
     password: "123",
     taskCount: {
-      active: 2,
+      active: 4,
       newTask: 1,
       completed: 1,
       failed: 1
@@ -104,7 +104,7 @@ const employee = [
     email: "employee3@example.com",
     password: "123",
     taskCount: {
-      active: 2,
+      active: 3,
       newTask: 1,
       completed: 1,
       failed: 0
