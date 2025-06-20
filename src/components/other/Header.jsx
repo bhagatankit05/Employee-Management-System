@@ -1,12 +1,16 @@
 import React from "react";
 
-const logOutUser = () => {
-    localStorage.setItem("loggedInUser","");
-    window.location.reload();
-}
 
-const Header = () => {
+
+
+const Header = (props) => {
+    const logOutUser = () => {
+    localStorage.setItem("loggedInUser","");
+    //window.location.reload();
+    props.changeUser(null);     
+// Redirect to login page or perform any other action
     
+}
     return (
         <div className="flex items-end justify-between">
             <h1 className="text-white text-2xl font-medium">
