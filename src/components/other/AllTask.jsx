@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 
 const AllTask = () => {
-  const authdata = useContext(AuthContext);
+  const [userData, setUserData] = useContext(AuthContext);
 
   return (
     <div className="bg-[#1C1C1C] p-6 mt-6 rounded-lg shadow-lg min-h-screen text-white">
@@ -17,7 +17,7 @@ const AllTask = () => {
 
       {/* Task Rows Scrollable */}
       <div className="">
-        {authdata.employee.map((elem, index) => (
+        {userData?.map((elem, index) => (
           <div
             key={index}
             className="border-2 border-emerald-700  px-4 py-2 flex justify-between rounded-lg mb-4 shadow-md text-center"

@@ -1,7 +1,11 @@
 import { set } from "mongoose";
 import React, { useState } from "react";
+import { AuthContext } from "../../context/AuthProvider";
+import { useContext } from "react";
 
 const CreateTask = () => {
+const [userData, setUserData] = useContext(AuthContext);
+
   const [taskTitle, setTaskTitle] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
   const [taskDate, setTaskDate] = useState("");
@@ -23,12 +27,12 @@ const CreateTask = () => {
       completed: true,
       failed: true,
     });
-    const data = JSON.parse(localStorage.getItem("employee"));
+    const data = userData;
     data.forEach(function (elem) {
       if (assignTo === elem.name) {
         elem.tasks.push(newTask);
-        elem.taskCount.newTask += 1;
-        console.log(elem);
+        elem.tasks.newTask = elem.tasks.newTask+1
+       
       }
     }
 
