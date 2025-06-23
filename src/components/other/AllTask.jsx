@@ -5,28 +5,28 @@ const AllTask = () => {
   const [userData, setUserData] = useContext(AuthContext);
 
   return (
-    <div className="bg-[#1C1C1C] p-6 mt-6 rounded-lg shadow-lg min-h-screen text-white">
+    <div className="bg-[#1C1C1C] p-6 mt-6 rounded-xl shadow-xl min-h-screen text-white">
       {/* Header Row */}
-      <div className="bg-red-500 px-4 py-2 flex justify-between rounded-lg mb-4 shadow-md font-semibold text-center">
-        <h2 className="w-1/5 text-lg font-medium bg-red-800 py-1">Employee Name</h2>
-        <h2 className="w-1/5 text-lg font-medium bg-red-800 py-1">New Task</h2>
-        <h2 className="w-1/5 text-lg font-medium bg-red-800 py-1">Active Task</h2>
-        <h2 className="w-1/5 text-lg font-medium bg-red-800 py-1">Completed Task</h2>
-        <h2 className="w-1/5 text-lg font-medium bg-red-800 py-1">Failed Task</h2>
+      <div className="bg-red-600 px-4 py-3 flex justify-between rounded-md mb-6 shadow-lg font-semibold text-white text-center">
+        <h2 className="w-1/5 text-base bg-red-800 py-2 rounded-md">Employee Name</h2>
+        <h2 className="w-1/5 text-base bg-red-800 py-2 rounded-md">New Task</h2>
+        <h2 className="w-1/5 text-base bg-red-800 py-2 rounded-md">Active Task</h2>
+        <h2 className="w-1/5 text-base bg-red-800 py-2 rounded-md">Completed Task</h2>
+        <h2 className="w-1/5 text-base bg-red-800 py-2 rounded-md">Failed Task</h2>
       </div>
 
-      {/* Task Rows Scrollable */}
-      <div className="">
+      {/* Scrollable Task Rows */}
+      <div className="space-y-4 max-h-[70vh] overflow-y-auto pr-1">
         {userData?.map((elem, index) => (
           <div
             key={index}
-            className="border-2 border-emerald-700  px-4 py-2 flex justify-between rounded-lg mb-4 shadow-md text-center"
+            className="border border-emerald-700 bg-[#2A2A2A] px-4 py-3 flex justify-between rounded-lg hover:bg-[#333333] transition duration-300 ease-in-out shadow-md text-center"
           >
-            <h2 className="text-lg font-medium  w-1/5 text-white py-1">{elem.name}</h2>
-            <h2 className="text-lg font-medium w-1/5 text-blue-500 py-1">{elem.taskCount.newTask}</h2>
-            <h2 className="text-lg font-medium w-1/5 text-yellow-500 py-1">{elem.taskCount.active}</h2>
-            <h2 className="text-lg font-medium w-1/5 text-slate-200 py-1">{elem.taskCount.completed}</h2>
-            <h2 className="text-lg font-medium w-1/5 text-red-600 py-1">{elem.taskCount.failed}</h2>
+            <h2 className="w-1/5 text-base font-medium text-white">{elem.name}</h2>
+            <h2 className="w-1/5 text-base font-medium text-blue-400">{elem.taskCount.newTask}</h2>
+            <h2 className="w-1/5 text-base font-medium text-yellow-400">{elem.taskCount.active}</h2>
+            <h2 className="w-1/5 text-base font-medium text-green-300">{elem.taskCount.completed}</h2>
+            <h2 className="w-1/5 text-base font-medium text-red-500">{elem.taskCount.failed}</h2>
           </div>
         ))}
       </div>
